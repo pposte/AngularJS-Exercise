@@ -20,6 +20,25 @@ app.controller('ctrl', function($scope, $http ,$filter){
             };
             $scope.orderByField = 'firstName';
             $scope.reverseSort = false;
+            $scope.currentPage = 0;
+            $scope.pageSize = 25;
+            $scope.data = [];
+            $scope.numberOfPages=function(){
+                return Math.ceil($scope.myData.length/$scope.pageSize);
+            }
+            for (var i=0; i<myData.length; i++) {
+                $scope.data.push("Item "+i);
+            }
         });
     });
+});
+
+
+//We already have a limitTo filter built-in to angular,
+//let's make a startFrom filter
+app.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
 });

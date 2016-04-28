@@ -35,14 +35,22 @@
            </th>
            <th>Customer profile</th>
        </tr>
-    <tr ng-repeat="x in myData |orderBy:orderByField:reverseSort| filter:search">
+    <tr ng-repeat="x in myData |orderBy:orderByField:reverseSort| filter:search | startFrom:currentPage*pageSize | limitTo:pageSize">
         <td>{{$index+1}}</td>
         <td>{{x.firstName}} {{x.lastName}}</td>
         <td>{{x.title}}</td>
         <td>{{getOutletName(x)}}</td>
         <td>{{x.profile}}</td>
     </tr>
-</table>
+
+    </table>
+    <div id="buttons"><button class="button" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+    Previous
+</button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="button" ng-disabled="currentPage >= myData.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+    </button></div>
 
 </div>
 
