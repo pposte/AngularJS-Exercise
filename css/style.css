@@ -1,0 +1,38 @@
+table{
+    margin: 50px;
+    border: solid black ;
+}
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+a{
+    text-decoration: none;
+}
+th{
+    padding: 5px;
+    border-radius: 20px;
+    background: grey;
+    font-family: fantasy;
+
+}
+th a:hover{
+    color: beige;
+}
+
+#search{
+
+    padding-top: 60px;
+    padding-left: 50px;
+    font-size: x-large;
+    font-family: monospace;
+
+}
+header{
+    text-align: center;
+    font-size: xx-large;
+    font-family: cursive;
+    border-bottom: solid black;
+    position:fixed;
+    width: 100%;
+    background: lightblue;
+}

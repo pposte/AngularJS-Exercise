@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cision Exercise</title>
+    <link rel="icon" type="image/png" href="images/download.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="application/javascript" src="js/app.js"></script>
+</head>
+<body ng-app="myApp">
+<header>
+    Display Contacts/Outlets Coding Exercise
+</header><br>
+<div ng-controller="ctrl">
+    <div> <div id="search">Search Name: <input type="text" class="form-control" placeholder="Search Name" ng-model="search"></div></div>
+    <table>
+
+       <tr>
+           <th width="20px">#</th>
+           <th width="120px">
+               <a href="#" ng-click="orderByField='firstName'; reverseSort = !reverseSort">
+                   Contact Name <span ng-show="orderByField == 'firstName'"><span ng-show="!reverseSort"> &uarr;</span><span ng-show="reverseSort"> &darr;</span></span>
+               </a>
+           </th>
+           <th width="170px">
+               <a href="#" ng-click="orderByField='title'; reverseSort = !reverseSort">
+                   Contact Title <span ng-show="orderByField == 'title'"><span ng-show="!reverseSort"> &uarr;</span><span ng-show="reverseSort"> &darr;</span></span>
+               </a>
+           </th>
+           <th width="150px">
+               <a href="#" ng-click="orderByField='getOutletName'; reverseSort = !reverseSort">
+                   Outlet Name <span ng-show="orderByField == 'getOutletName'"><span ng-show="!reverseSort"> &uarr;</span><span ng-show="reverseSort"> &darr;</span></span>
+               </a>
+           </th>
+           <th>Customer profile</th>
+       </tr>
+    <tr ng-repeat="x in myData |orderBy:orderByField:reverseSort| filter:search">
+        <td>{{$index+1}}</td>
+        <td>{{x.firstName}} {{x.lastName}}</td>
+        <td>{{x.title}}</td>
+        <td>{{getOutletName(x)}}</td>
+        <td>{{x.profile}}</td>
+    </tr>
+</table>
+
+</div>
+
+</body>
+</html>
