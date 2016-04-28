@@ -1,6 +1,6 @@
 #Running Instruction
 
-If running locally without ant IDE try to run on Safari or Firefox. Chrome and IE has some restrictions.
+If running locally without any IDE try to run on Safari or Firefox. Chrome and IE has some restrictions.
 
 #Display Contacts/Outlets Coding Exercise
 For this exercise, you will create a web page that will read in and display a collection of Media Contacts and thier Outlets.
